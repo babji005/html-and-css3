@@ -1,133 +1,164 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<style>
-    div { 
-        box-sizing: border-box;
-        width: 100%;
-        border: 100px solid black;
-        float: left;
-        align-content: center;
-        align-items: center;
-    }
-       
-    form {   
-        margin: 0 auto;
-        width: 600px;
-    }</style>
-</head>
-
-        <!-- <p>Password: <input type="text" 
-                            size="65" name="Password" /></p>
-        <br /> -->
-        
-        
-        
-      
-        
-       
-   
-
-    <body >
-        <h1 style="text-align: center;">REGISTRATION FORM</h1>
-        <form name="RegForm" action="/submit.php" 
-              onsubmit="return GEEKFORGEEKS()" method="post">
-            <p>Name: <input type="text" 
-                            size="65" name="Name" /></p>
-            <br />
-            <p>Address: <input type="text" 
-                               size="65" name="Address" />
-          </p>
-            <br />
-            <p>E-mail: <input type="text" 
-                            size="65" name="EMail" /></p>
-            <br />
-            <p>Password: <input type="text" 
-                         size="65" name="Password" /></p>
-            <br />
-            <p>Telephone: <input type="text" 
-                        size="65" name="Telephone" /></p>
-            <br />
+        <script>
+            function GEEKFORGEEKS() {
+                var name = 
+                    document.forms["RegForm"]["Name"];
+                var email = 
+                    document.forms["RegForm"]["EMail"];
+                var phone = 
+                    document.forms["RegForm"]["Telephone"];
+                var what = 
+                    document.forms["RegForm"]["Subject"];
+                var password = 
+                    document.forms["RegForm"]["Password"];
+                var address = 
+                    document.forms["RegForm"]["Address"];
   
+                if (name.value == "") {
+                    window.alert("Please enter your name.");
+                    name.focus();
+                    return false;
+                }
+  
+                if (address.value == "") {
+                    window.alert("Please enter your address.");
+                    address.focus();
+                    return false;
+                }
+  
+                if (email.value == "") {
+                    window.alert(
+                      "Please enter a valid e-mail address.");
+                    email.focus();
+                    return false;
+                }
+  
+                if (phone.value == "") {
+                    window.alert(
+                      "Please enter your telephone number.");
+                    phone.focus();
+                    return false;
+                }
+  
+                if (password.value == "") {
+                    window.alert("Please enter your password");
+                    password.focus();
+                    return false;
+                }
+  
+                if (what.selectedIndex < 1) {
+                    alert("Please enter your course.");
+                    what.focus();
+                    return false;
+                }
+  
+                return true;
+            }
+        </script>
+  
+        <style>
+            div {
+                box-sizing: border-box;
+                width: 100%;
+                border: 100px solid black;
+                float: left;
+                align-content: center;
+                align-items: center;
+            }
+  
+            form {
+                margin: 0 auto;
+                width: 600px;
+            }
+        </style>
+    </head>
+  
+    <body style="background-color: aqua;">
+        
+        <form name="RegForm" action="" 
+              onsubmit="return GEEKFORGEEKS(this)" method="POST" style="background-color: rgb(152, 14, 187);">
+              <!-- <p class="col-md-6">
+                <label for="inputEmail4" class="form-label">First name:</label>
+                <input type="email" size="65" class="form-control" id="inputEmail4">
+              </p> -->
+              <h1 style="text-align: center;">REGISTRATION FORM</h1>
+              <p>First Name: <input type="text" 
+                size="65" name="FName" /></p>
+                <br />
+            <p>Last Name: <input type="text" 
+                            size="65" name="LName" /></p>
+            
+            
+            <br />
+            <p>CHOOSE GENDER:<select class="form-select" name="gender" size="0" aria-label="size 3 select example" >
+                <option value="" disabled selected>Choose gender</option>
+                <option value="1">male</option>
+                <option value="2">female</option>
+                <option value="3">trans gender</option>
+              </select>
+                </p>
+                <br />
+            <p>E-mail: <input type="text" style="margin-left: 4%;"
+                            size="65" name="EMail" /></p>
             <p>
-                SELECT YOUR COURSE
-                <select type="text" value="" name="Subject">
-                    <option>BTECH</option>
-                    <option>BBA</option>
-                    <option>BCA</option>
-                    <option>B.COM</option>
-                    <option>GEEKFORGEEKS</option>
+                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                <label class="form-check-label" for="gridCheck1">
+                  Subscribe to get notifications
+                </label>
+            </p>
+            <br />
+            <p>Mobile: <input type="text" style="margin-left: 3%;"
+                size="65" name="Telephone" /></p>
+    <br />
+            <p>Address: <input type="text" style="margin-left: 2%;"
+                size="65" name="Address" />
+</p>
+            <!-- <p>Password: <input type="text" 
+                         size="65" name="Password" /></p>
+             -->
+           
+             <br />
+            <p>
+                SELECT YOUR STATE
+                <select type="text" value="" name="State"  onchange="makeSubmenu(this.value)">
+                    <option>andhra</option>
+                    <option>tamilnadu</option>
+                    <option>telangana</option>
+                    <option>kerala</option>
+                    <option>goa</option>
                 </select>
+                </p>
+                <p>
+                    SELECT YOUY CITY
+                <select id="citySelect" size="1" >
+                    <option value="" disabled selected>Choose City</option>
+                    <option></option>
+                    </select>
+                    <!-- <button onclick="displaySelected()">show selected</button> -->
             </p>
             <br />
             <br />
-            <p>Comments: <textarea cols="55" 
-                              name="Comment"> </textarea></p>
-            <p>
+            <!-- <p>Comments: <textarea cols="55" 
+                              name="Comment"> </textarea></p> -->
+            <p style="text-align: end; margin-right:10%;"> 
+                <a href="index.html">
+                
                 <input type="submit" 
                        value="send" name="Submit" />
+                    </a>
+
                 <input type="reset" 
                        value="Reset" name="Reset" />
             </p>
+            <br />
         </form>
-<!-- <p><select class="form-select" aria-label="size 3 select example" >
-    <option value="" disabled selected>Choose gender</option>
-    <option value="1">male</option>
-    <option value="2">female</option>
-    <option value="3">trans gender</option>
-  </select>
-    </p> -->
-<br />
-            <p>Telephone: <input type="text" 
-             size="65" name="Telephone" /></p>
-<br />
 
-<!-- <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div> -->
-
-<br />
-        <!-- <p>
-        <select id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
-        <option value="" disabled selected>Choose State</option>
-        <option>andhra</option>
-        <option>tamilnadu</option>
-        <option>telangana</option>
-        <option>kerala</option>
-        <option>goa</option>
-        </select>
-        <select id="citySelect" size="1" >
-        <option value="" disabled selected>Choose City</option>
-        <option></option>
-        </select>
-        <button onclick="displaySelected()">show selected</button>
-        </p>
-        <br />
-        <br /> -->
-        
-        <!-- <p>Comments: <textarea cols="55" 
-            name="Comment"> </textarea></p>  -->
-        <p>
-           <input type="submit" 
-            value="send" name="Submit" />
-            <input type="reset" 
-             value="Reset" name="Reset" />
-        </p>
         <script type="text/javascript" src="newcustomer.js">
         
         </script>
 
-
-
-
-
-
-        </body>
-
-
-<!-- <script src="newcustomer.js"></script> -->
-</body>
+      
+    </body>
 </html>

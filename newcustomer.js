@@ -1,70 +1,3 @@
-function GEEKFORGEEKS() {
-    var Fname = 
-        document.forms["RegForm"]["FName"];
-    var Lname = 
-        document.forms["RegForm"]["LName"];
-    var email = 
-        document.forms["RegForm"]["EMail"];
-    var atpos = email.indexOf("@");
-    var dotpos = email.lastIndexOf(".");
-    var gender = 
-        document.forms["RegForm"]["gender"]
-    var phone = 
-        document.forms["RegForm"]["Telephone"];
-    // var state = 
-    //     document.forms["RegForm"]["State"];
-    var password = 
-        document.forms["RegForm"]["Password"];
-    var address = 
-        document.forms["RegForm"]["Address"];
-        
-
-    if ((Fname.value.length <5) || (Fname.value = "") ) {
-        window.alert("Please enter your name.");
-        Fname.focus();
-        return false;
-    }
-    
-    if (address.value == "") {
-        window.alert("Please enter your address.");
-        address.focus();
-        return false;
-    }
-
-    if (email.value == "" || atpos < 1 || ( dotpos - atpos < 2 ))  {
-        window.alert(
-          "Please enter a valid e-mail address.");
-        email.focus();
-        return false;
-    }
-    return true;
-
-    if (phone.value == "") {
-        window.alert(
-          "Please enter your telephone number.");
-        phone.focus();
-        return false;
-    }
-
-    if (password.value == "") {
-        window.alert("Please enter your password");
-        password.focus();
-        return false;
-    }
-
-    if (what.selectedIndex < 1) {
-        alert("Please enter your course.");
-        what.focus();
-        return false;
-    }
-
-    return true;
-}
-
-
-
-
-
 var citiesByState =  {
     andhra: ["vizag","rajahmundry","vijayawada"],
     telangana: ["warangal","bhadrachalam","hyd"],
@@ -90,3 +23,57 @@ var citiesByState =  {
     document.getElementById("countrySelect").selectedIndex = 0;
     document.getElementById("citySelect").selectedIndex = 0;
     }
+
+
+    function GEEKFORGEEKS() {
+        var Fname = 
+            document.forms["RegForm"]["FName"];
+        var Lname = 
+            document.forms["RegForm"]["LName"];
+        var email = 
+            document.forms["RegForm"]["EMail"];
+        var atpos = email.indexOf("@");
+        var dotpos = email.lastIndexOf(".");
+        var gender = 
+            document.forms["RegForm"]["gender"]
+        var phone = 
+            document.forms["RegForm"]["Telephone"];
+     
+
+        var address = 
+            document.forms["RegForm"]["Address"]
+
+
+            if ((Fname.value.length <5) || (Fname.value = "") ) {
+                window.alert("Please enter your name.");
+                Fname.focus();
+                return false;
+            }
+            if ((Lname.value.length <5) || (Lname.value = "") ) {
+                window.alert("Please enter your name.");
+                Lname.focus();
+                return false;
+            }
+            
+            if (address.value == "") {
+                window.alert("Please enter your address.");
+                address.focus();
+                return false;
+            }
+        
+            if (email.value == "" || atpos < 1 || ( dotpos - atpos < 2 ))  {
+                window.alert(
+                  "Please enter a valid e-mail address.");
+                email.focus();
+                return false;
+            }
+            return true;
+        
+            if (phone.value == "") {
+                window.alert(
+                  "Please enter your telephone number.");
+                phone.focus();
+                return false;
+            }
+
+        }
